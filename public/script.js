@@ -129,15 +129,15 @@ const playStop = () => {
 
 setPlayVideo = () => {
    const html = `
-   <i class="fas fa-video"></i>
-   <span>Video</span>
+   <i class="stop fas fa-video-slash"></i>
+   <span>Play Video</span>
    `
    document.querySelector('.main__video__button').innerHTML = html;
 }
 setStopVideo = () => {
    const html = `
-   <i class="stop fas fa-video-slash"></i>
-   <span>Stop</span>
+   <i class="fas fa-video"></i>
+   <span>Stop Video</span>
    `
    document.querySelector('.main__video__button').innerHTML = html;
 }
