@@ -1,21 +1,20 @@
 const express = require('express');
 const app = express();
 
-const { v4: uuidv4 } = require('uuid'); // #7 import uuid v4 - version 4
+const { v4: uuidv4 } = require('uuid'); 
 
 const server = require('http').Server(app);
 
 app.set('view engine', 'ejs');
+app.use(express.static('public')); // tell the server where are the public files
 
 app.get('/', (req, res) => {
-   // res.status(200).send("hello world");
-   // res.render('room');
-   res.redirect(`/${uuidv4()}`); // #8 Get a unique Id and redirect to "localhost:3000/uid"
+   res.redirect(`/${uuidv4()}`);
 })
 
 
 app.get('/:room', (req, res) => {
-   res.render('room', { roomId: req.params.room }); // #9 Pass 'roomId' onto room.ejs
+   res.render('room', { roomId: req.params.room });
 }); 
 
 

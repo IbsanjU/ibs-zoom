@@ -48,3 +48,14 @@
       - uuid provide unique random id for the room participants
       - import uuid in server.js and create unique uuid
       - pass the new uuid (roomId) to room.ejs
+## Step 4
+- View our video on browser
+1. Create a new script.js in public folder and link it in room.js
+      - tell the server.js where the public files are located
+2. Create a video element to view our own video
+      - `navigator.mediaDevices.getUserMedia()` will get audio and video from the chrome browser
+      - getUserMedia takes an Object `{video:true, audio:true}` to get access
+      - It is a Promise and Promise an event in the future it is either accept or reject
+      - get the video and set it up to play afte the stream is loaded
+3. Create a video-grid in room.ejs
+      - create a video element in room.ejs
