@@ -87,6 +87,7 @@ video {
 }
 .main__chat__window {
   flex-grow: 1;
+  overflow: auto;
 }
 .main__message__container {
   padding: 22px 12px;
@@ -97,4 +98,14 @@ video {
   background-color: transparent;
   border: none;
   color: #f5f5f5;
+}
+
+.messages {
+  color: white;
+  list-style: none;
+}
+
+.unmute,
+.stop {
+  color: #cc3b33;
 }

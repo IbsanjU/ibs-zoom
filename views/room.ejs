@@ -30,11 +30,11 @@
          </div>
          <div class="main__controls">
             <div class="main__controls__block">
-               <div class="main__conrols__button">
+               <div  onclick="muteUnmute()" class="main__conrols__button main__mute__button">
                   <i class="fas fa-microphone"></i>
                   <span>Mute</span>
                </div>
-               <div class="main__conrols__button">
+               <div  onclick="playStop()" class="main__conrols__button main__video__button">
                   <i class="fas fa-video"></i>
                   <span>Stop Video</span>
                </div>
@@ -68,8 +68,8 @@
          <div class="main__header">
             <h6>Chat</h6>
          </div>
-         <div class="main__chat__window">
-            <ul class="messages">
+         <div id="main__chat__window" class="main__chat__window">
+            <ul id="messages"  class="messages">
 
             </ul>
          </div>

@@ -30,6 +30,10 @@ io.on('connection', socket => {
       socket.join(roomId); // join the new user to the same room with roomId
       socket.to(roomId).broadcast.emit('user-connected', userId); // broadcast to all the members of the room userId
       console.log("joined the room", roomId, "userId==", userId);
+
+      socket.on('message', message => {
+         io.to(roomId).emit('createMessage', message);
+      })
    })
 })// when the user is connected to it 
 
