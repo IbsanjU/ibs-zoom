@@ -59,3 +59,22 @@
       - get the video and set it up to play afte the stream is loaded
 3. Create a video-grid in room.ejs
       - create a video element in room.ejs
+## Step 5
+- Allow others to stream their video
+1.  use SOCKET.IO 
+      - socket.io is used for realtime two way communication on the same channel
+      - socket.io uses websocket which is popular for asynchromous realtime engine
+      - websocket is like a internet protocol but not the same.
+      - The difference between http and socket is that 'hhtp' can only as a cliet make request to the server but the server can only repond and it cannot start a request.
+      - In socket Io the the server can request and response at the same time and doesn't have to wait for the client to request.
+   - Install socket.io `npm install scocket.io`
+      - In server.js and room.ejs import socket.io
+      - `socket.emit('join-room')` in script.js
+      - check if the user is joined the room when the user is connected 
+   - using the roomId from the room.ejs add the video element of others the video-grid
+      -  we can join the room from the specific roomId from server.js
+      - `socket.emit('join-room', ROOM_ID);` ROOM_ID is accessed from the room.ejs
+      - broadcast new user connected to the room members
+      - listen on the new user-connected on the socket in script.js `socket.on('user-connected')`
+      - when a new user connects its identified
+

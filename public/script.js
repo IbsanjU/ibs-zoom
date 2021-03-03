@@ -1,25 +1,33 @@
-const videoGrid =  document.getElementById('video-grid'); // #8 reference the video-grid to put the video element later
-const myVideo = document.createElement('video'); // #7 create an video element
+const socket = io('/');
+
+const videoGrid = document.getElementById('video-grid');
+const myVideo = document.createElement('video');
+myVideo.muted = true;
 
 let myVideoStream;
 
-// #1 gets the video and audio from the chrome
-// #2 getUserMedia will accept an Object
-// also its an promise
 navigator.mediaDevices.getUserMedia({
    video: true,
    audio: true
 }).then(stream => {
-   myVideoStream = stream; // #3 captures the video and pass it to myVideoStream
+   myVideoStream = stream;
    addVideoStream(myVideo, stream);
 })
 
-// #4 create a func which takes the video on the element and a stream.
-// play the stream video
+socket.emit('join-room', ROOM_ID);
+
+socket.on('user-connected', () => {
+   connectToNewUser();
+}) // listen on the new user connected
+
+const connectToNewUser = () => {
+   console.log("new user");
+}
+
 const addVideoStream = (video, stream) => {
-   video.srcObject = stream; // #5 setting the source for the video
+   video.srcObject = stream;
    video.addEventListener('loadedmetadata', () => {
-      video.play(); // #6 after we load the video we will play it using the event listener
+      video.play();
    })
-   videoGrid.append(video); 
+   videoGrid.append(video);
 }
