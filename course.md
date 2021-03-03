@@ -77,4 +77,17 @@
       - broadcast new user connected to the room members
       - listen on the new user-connected on the socket in script.js `socket.on('user-connected')`
       - when a new user connects its identified
-
+2. WebRTC & PeerJS
+      - WebRTC is  a free, open-source project thta allows web browsers to communicate with eachother in real time
+      - [PeerJS](https://peerjs.com) wraps the webbrowsers with WebRTC implementation to provide a complete, configurable and easy-to-use peer-to-peer connection API.
+   - install peerJS `npm install peer`
+      - import ExperssPeerServer -- peer is working with express
+      - setup peerServer and specify the url for it to use `app.use('/peerjs', peerServer)`
+   - Open the peerConnection in the frontend (script.js)
+      - import in the room.ejs
+      - `<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>`
+      - create a new peer connection `var peer = new Peer()`
+      - Now listen on the peerConnection and pass the new user id using socket.emit 
+      - connectToNewUser by CALLing on the userId and stream video
+      - the stream is coming form the promise so we wait for the promise to listen to the user-connected
+      - Answer the call
