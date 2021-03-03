@@ -42,3 +42,9 @@
       - set the server to load the room.ejs `res.render('room')'
       - we dont need to import room.ejs in server.js 
       - instead we need to set the view engine to ejs ``
+## Step 3
+- Create room id usind uuid
+1. Install uuid `npm install uuid`
+      - uuid provide unique random id for the room participants
+      - import uuid in server.js and create unique uuid
+      - pass the new uuid (roomId) to room.ejs
