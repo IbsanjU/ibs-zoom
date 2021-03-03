@@ -34,3 +34,11 @@
       - install nodemon `npm install -g nodemon`
       - -g stands for installing globally
       - run the server by `nodemon server.js`
+## Step 2
+- Create a view for our Room
+1. Create room.ejs file in views folder
+      - .ejs is embedded js - It will allow us to communicate variables with frontend
+2. Install ejs  `npm install ejs`
+      - set the server to load the room.ejs `res.render('room')'
+      - we dont need to import room.ejs in server.js 
+      - instead we need to set the view engine to ejs ``
